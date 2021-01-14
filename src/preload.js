@@ -207,7 +207,7 @@ function valueByCluster(data) {
   return dictBy(
     data,
     (d) => d.metric.cluster,
-    (d) => d.value[1]
+    (d) => d.value[1],
   );
 }
 
@@ -293,7 +293,7 @@ function getBubbleplotData() {
       console.error(
         'Bubble data objects out of order',
         typeof waitTimes[i].metric.account,
-        typeof queueLengths[i].metric.account
+        typeof queueLengths[i].metric.account,
       );
     }
   }
@@ -320,7 +320,7 @@ function buildBarChart() {
   Barchart.drawStackedBarChart(
     'cpuChart',
     cpuDatasets,
-    barCharts.map((c) => c.label)
+    barCharts.map((c) => c.label),
   );
 }
 
@@ -416,7 +416,7 @@ async function doTheThing() {
   dataMasterDict = dictBy(
     dataMaster,
     (d) => d.name,
-    (d) => d.data
+    (d) => d.data,
   );
 
   console.table(dataMaster);
