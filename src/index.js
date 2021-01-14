@@ -1,30 +1,29 @@
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    ____ __   __  __ ___   __  ___  _      __ ___  ______ _____ __ __
   / __// /  / / / // _ \ /  |/  / | | /| / // _ |/_  __// ___// // /
  _\ \ / /__/ /_/ // , _// /|_/ /  | |/ |/ // __ | / /  / /__ / _  /
 /___//____/\____//_/|_|/_/  /_/   |__/|__//_/ |_|/_/   \___//_//_/
 
 ⚡Slurm Watch⚡: This is an application built with Electron Forge.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* eslint-disable import/no-extraneous-dependencies */
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
 require('dotenv').config({ path: 'variables.env' });
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
+/* eslint-disable global-require */
 if (require('electron-squirrel-startup')) {
-  // eslint-disable-line global-require
   app.quit();
 }
 
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1440,
-    height: 1200,
+    fullscreen: true,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, 'preload.js'),
     },
   });
 
@@ -32,6 +31,7 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
+  // TODO: Remove for production.
   mainWindow.webContents.openDevTools();
 };
 
@@ -56,6 +56,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
