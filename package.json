@@ -1,7 +1,7 @@
 {
   "name": "slurm-watch",
   "productName": "slurm-watch",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "An Electron application to display key SLURM usage data on the vizwall.",
   "main": "src/index.js",
   "scripts": {
