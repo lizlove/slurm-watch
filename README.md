@@ -12,7 +12,7 @@ To check that Node.js was installed correctly, type the following commands in yo
 
 ```
   node -v
-  npm - v;
+  npm - v
 ```
 
 ## Installation
