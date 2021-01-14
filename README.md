@@ -42,7 +42,7 @@ You are now reading to run the app with the following command:
   yarn start
 ```
 
-ESLint is configured in this repo. Run the following script to lint your code.
+[ESLint](https://eslint.org/) is configured in this repo. Run the following script to lint your code.
 
 ```
   npm run lint
