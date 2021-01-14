@@ -20,23 +20,19 @@ yarn start
 - Line graph: Nodes by center over 7 days
 - Bubbleplot: Wait time by center over 24 hours
 
-### Charts To Do
+### To Do
 
-- _Tbd:_ Iron broadwell & skylight
 - CPU nodes currently allocated by account (or partition) aka center as a sunburst chart
-
-### Misc todos
-
+- Fix to single page of responsive screen sizes
 - Style current queue table
-- Combine flexboxgrid & stylesheet and minify
 - Reorder barchart according to keys provided
-- Style and add cool fonts
-- Improve labeling
 - Add open GPUs/CPUs as number under the donut
 - Handle erroring on bubbleplot
 - Hover on bubbleplot
+- Improve labeling
 
 ### Other charts for potential v2?
 
+- _Tbd:_ Iron broadwell & skylight
 - CPU efficiency by center as racecars
 - Toggle num queue items by center with queue items by location (gordon etc)
