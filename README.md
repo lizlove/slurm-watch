@@ -2,12 +2,51 @@
 
 An Electron application to display live slurm usage metrics at the Flatiron Institute.
 
-## Installation
+## Prerequisites
 
-To start SlurmWatch locally use:
+Before proceeding with Slurm Watch you need to install [Node.js](https://nodejs.org/en/download/). We recommend that you install either the latest LTS or Current version available.
+
+Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
+
+To check that Node.js was installed correctly, type the following commands in your terminal client:
 
 ```
-yarn start
+  node -v
+  npm - v;
+```
+
+## Installation
+
+0. Clone this repository locally. See the green _Code_ button above for details.
+
+1. Install the `node_modules` via your preferred dependency manager. [npm](https://www.npmjs.com/) comes built into Node.js This project is also [yarn](https://classic.yarnpkg.com/en/) compatible.
+
+```
+  npm install
+  yarn install
+```
+
+2. Create a variables.env file at the root of your local repository and add the following variables.
+
+```
+  PROMETHEUS_USER=<your prometheus username>
+  PROMETHEUS_PASS=<your prometheus pass>
+```
+
+## Running Locally
+
+You are now reading to run the app with the following command:
+
+```
+  npm run start
+  yarn start
+```
+
+ESLint is configured in this repo. Run the following script to lint your code.
+
+```
+  npm run lint
+  yarn lint
 ```
 
 ## Notes
