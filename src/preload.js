@@ -13,7 +13,7 @@ let dataMasterDict = {};
 let lastMeasuredTime;
 
 function getNow() {
-  return dayjs().format('MMMM Do YYYY, h:mm:ss a');
+  return dayjs().format('ddd MMM D   h:mm A');
 }
 
 function setLastMeasuredTime() {
@@ -195,14 +195,6 @@ function filterDataMasterWithoutPopeye(char) {
   return filterDataMaster(char)[0].data.filter((center) => center.metric.account !== 'popeye');
 }
 
-// function mapDict(data, f) {
-//   const r = {};
-//   for (const k in data) {
-//     r[k] = f(data[k]);
-//   }
-//   return r;
-// }
-
 function dictBy(data, key, value) {
   const r = {};
   for (const d of data) {
@@ -218,18 +210,6 @@ function valueByCluster(data) {
     (d) => d.value[1]
   );
 }
-
-// function sortCPUData(cpudata) {
-//   cpudata.sort((last, next) => {
-//     if (last.metric.cluster === next.metric.cluster) {
-//       // Nodes are only important when clusters are the same.
-//       return last.metric.nodes > next.metric.nodes ? 1 : -1;
-//     }
-//     return last.metric.cluster > next.metric.cluster ? 1 : -1;
-//   });
-//   // Remove mem from display.
-//   return cpudata.filter((obj) => obj.metric.nodes !== 'mem');
-// }
 
 function findBarChart(chartObj, chart) {
   /* eslint-disable-next-line no-shadow */
@@ -344,18 +324,18 @@ function buildBarChart() {
   );
 }
 
+function toTitleCase(str) {
+  return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+}
+
 function buildDoughnutCharts() {
   let gpuData = {};
   gpuData = getDoughnutData();
   let index = 1;
   for (const value in gpuData) {
     if (Object.prototype.hasOwnProperty.call(gpuData, value)) {
-      Doughnut.drawDoughnutChart(
-        [gpuData[value]],
-        `gpuChart${index}`,
-        ['Free', 'In Use'],
-        `${value.toString().toUpperCase()}`
-      );
+      const title = toTitleCase(value.toString());
+      Doughnut.drawDoughnutChart([gpuData[value]], `gpuChart${index}`, ['Free', 'In Use'], title);
     }
     index++;
   }
@@ -364,7 +344,7 @@ function buildDoughnutCharts() {
 function buildTable() {
   const currentQueuedData = dataMasterDict.queued;
   currentQueuedData.sort((a, b) => (a.metric.account > b.metric.account ? 1 : -1));
-  Table.drawTable('queueTable', currentQueuedData, ['Center', 'Count'], 'Current Queue Count');
+  Table.drawTable('queueTable', currentQueuedData, ['Center', '#'], 'Current Queue Count');
 }
 
 function buildLineChart() {

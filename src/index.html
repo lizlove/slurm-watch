@@ -3,55 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <title>SLURM WATCH: Flatiron Slurm Data Usage</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
-  <body class="body">
-    <div class="column">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="chart-container">
-              <canvas id="nodeChart"></canvas>
-            </div>
-          </div>
-        </div>
+  <body>
+    <div class="container">
+      <div class="chart-container chart-container__2_1 chart-container__column">
+        <h3 class="heading">⚡ SLURM WATCH ⚡</h3>
+        <h4 id="loading" class="alert">Loading</h4>
+        <h4 id="lastMeasuredTime" class="alert"></h4>
       </div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-2">
-            <div class="chart-container">
-              <h1 class="heading">⚡ SLURM WATCH ⚡</h1>
-              <h4 id="loading" class="alert">Loading</h4>
-              <h4 id="lastMeasuredTime" class="alert"></h4>
-            </div>
-          </div>
-          <div class="col-xs-5">
-            <div class="chart-container">
-              <canvas id="cpuChart"></canvas>
-            </div>
-          </div>
-          <div class="col-xs-5 row">
-            <div class="chart-container row middle-xs">
-              <div class="col-xs-6"><canvas id="gpuChart1"></canvas></div>
-              <div class="col-xs-6"><canvas id="gpuChart2"></canvas></div>
-            </div>
-          </div>
-        </div>
+      <div class="chart-container chart-container__6_3">
+        <canvas id="nodeChart"></canvas>
       </div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-10">
-            <div class="chart-container">
-              <canvas id="bubbleplot"></canvas>
-            </div>
-          </div>
-          <div class="col-xs-2">
-            <div class="chart-container">
-              <p>Current Queue Length</p>
-              <div id="queueTable"></div>
-            </div>
-          </div>
-        </div>
+      <div class="chart-container chart_container__4_2">
+        <canvas id="cpuChart"></canvas>
+      </div>
+      <div class="chart-container chart-container__2_1">
+        <canvas id="gpuChart1"></canvas>
+      </div>
+      <div class="chart-container chart-container__2_1">
+        <canvas id="gpuChart2"></canvas>
+      </div>
+      <div class="chart-container chart-container_1_2 chart-container__column">
+        <p>Current Queue</p>
+        <div id="queueTable"></div>
+      </div>
+      <div class="chart-container chart-container__6_3">
+        <canvas id="bubbleplot"></canvas>
       </div>
     </div>
   </body>
